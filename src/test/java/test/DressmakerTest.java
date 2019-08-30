@@ -7,14 +7,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("裁缝")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class DressmakerTest {
 
-    @DisplayName("如果使用蓝色的线，当裁缝 Andy 做一件 T恤，则得到一个红色的XL T恤")
     @Test
+    @DisplayName("如果使用蓝色的线，当裁缝 Andy 做一件 T恤，则得到一个红色的XL T恤")
     public void should_tailor_to_a_T_shirt_when_given_red_needlework() {
         String size = "XL";
         // Given
@@ -45,5 +45,16 @@ public class DressmakerTest {
         Tshirt tshirt = dressmaker.tailor(size, color);
         // Then
         assertEquals(tshirt, new Tshirt(size, color));
+    }
+
+    @Test
+    @Disabled
+    public void should_fail() {
+        fail("一定会失败");
+    }
+
+    @RepeatedTest(value = 10, name = "重复{currentRepetition}/{totalRepetitions}次")
+    public void repeat_10_times(){
+        System.out.println(1);
     }
 }
