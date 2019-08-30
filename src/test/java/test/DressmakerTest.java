@@ -49,6 +49,7 @@ public class DressmakerTest {
 
     @Test
     @Disabled
+    @DisplayName("跳过失败测试")
     public void should_fail() {
         fail("一定会失败");
     }
