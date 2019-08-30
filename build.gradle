@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'idea'
 }
 
 group 'unit_test_java'
@@ -11,13 +12,19 @@ repositories {
     maven { url "https://maven.aliyun.com/repository/central" }
 }
 
-test {
-    useJUnitPlatform()
-}
-
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.1")
+    // 参数化测试
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5.5.1')
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.5.1")
+    // 生成报告时使用
+    testRuntimeOnly("org.junit.platform:junit-platform-console-standalone:1.5.1")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.1")
-    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.5.1")
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

@@ -6,7 +6,7 @@ public class Dressmaker {
         this.name = name;
     }
 
-    public Tshirt tailor(String color) {
-        return new Tshirt("XL", color);
+    public Tshirt tailor(String size, String color) {
+        return new Tshirt(size, color);
     }
 }
