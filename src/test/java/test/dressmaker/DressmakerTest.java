@@ -1,4 +1,4 @@
-package test;
+package test.dressmaker;
 
 import dressmaker.Dressmaker;
 import dressmaker.Tshirt;
