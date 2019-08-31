@@ -6,12 +6,11 @@ public class Buyer {
 
     private BigDecimal balance = new BigDecimal(0);
     private int integral = 0;
+    private String email;
 
     public void setEmail(String email) {
         this.email = email;
     }
-
-    private String email;
 
     public void recharge(BigDecimal amount) throws Exception {
         if (amount.compareTo(new BigDecimal(0)) < 0) {
