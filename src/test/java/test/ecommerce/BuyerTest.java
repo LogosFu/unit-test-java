@@ -3,6 +3,9 @@ package test.ecommerce;
 import ecommerce.Buyer;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
 
@@ -27,5 +30,13 @@ public class BuyerTest {
         Buyer buyer = new Buyer();
         buyer.recharge(new BigDecimal(10));
         assertEquals(10, buyer.getIntegral());
+    }
+
+    @ParameterizedTest(name = "当充值时，如果金额是小数时，如（{0}），则积分为小数取整，如（{1}）")
+    @CsvSource({"10.1, 10", "5.9, 5", "0.9, 0"})
+    public void should_integration_integer_when_recharge_given_double(String amount,int expectedIntegral) throws Exception {
+        Buyer buyer = new Buyer();
+        buyer.recharge(new BigDecimal(amount));
+        assertEquals(expectedIntegral, buyer.getIntegral());
     }
 }

@@ -10,7 +10,6 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("裁缝")
-@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class DressmakerTest {
 
     @Test
