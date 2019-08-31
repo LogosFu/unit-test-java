@@ -53,8 +53,9 @@ public class DressmakerTest {
         fail("一定会失败");
     }
 
-    @RepeatedTest(value = 10, name = "重复{currentRepetition}/{totalRepetitions}次")
-    public void repeat_10_times(){
-        System.out.println(1);
+    @RepeatedTest(value = 10, name = "{displayName}{currentRepetition}/{totalRepetitions}次")
+    @DisplayName("重复Case：")
+    public void repeat_10_times(RepetitionInfo repetitionInfo){
+        System.out.println(repetitionInfo.getCurrentRepetition());
     }
 }
